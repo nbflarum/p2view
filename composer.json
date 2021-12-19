@@ -1,0 +1,35 @@
+{
+  "name": "jeffchen/p2view",
+  "description": "Add [p2view] BBcode Flarum posts",
+  "keywords": [
+    "bbcode",
+    "flarum",
+    "jeffchen",
+    "p2view"
+  ],
+  "type": "flarum-extension",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "bloodchen",
+      "homepage": "https://github.com/bloodchen/p2view"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/bloodchen/p2view/issues",
+    "source": "https://github.com/bloodchen/p2view"
+  },
+  "require": {
+    "flarum/core": "^1.0"
+  },
+  "extra": {
+    "flarum-extension": {
+      "title": "Pay to View",
+      "icon": {
+        "name": "fas fa-eye",
+        "backgroundColor": "#0d0",
+        "color": "#fff"
+      }
+    }
+  }
+}
