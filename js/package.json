@@ -1,5 +1,5 @@
 {
-  "name": "@jeffchen/p2view",
+  "name": "@nbflarum/p2view",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

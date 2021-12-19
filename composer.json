@@ -1,5 +1,5 @@
 {
-  "name": "jeffchen/p2view",
+  "name": "nbflarum/p2view",
   "description": "Add [p2view] BBcode Flarum posts",
   "keywords": [
     "bbcode",
@@ -12,12 +12,12 @@
   "authors": [
     {
       "name": "bloodchen",
-      "homepage": "https://github.com/bloodchen/p2view"
+      "homepage": "https://github.com/nbflarum/p2view"
     }
   ],
   "support": {
-    "issues": "https://github.com/bloodchen/p2view/issues",
-    "source": "https://github.com/bloodchen/p2view"
+    "issues": "https://github.com/nbflarum/p2view/issues",
+    "source": "https://github.com/nbflarum/p2view"
   },
   "require": {
     "flarum/core": "^1.0"
