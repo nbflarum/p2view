@@ -3,6 +3,7 @@ import app from 'flarum/app';
 import Modal from 'flarum/common/components/Modal';
 import Button from 'flarum/common/components/Button';
 import Stream from 'flarum/common/utils/Stream';
+import UTIL from './util'
 
 async function getUsername(userId){
   return new Promise(res=>{
@@ -28,24 +29,27 @@ export default class composeModal extends Modal {
     if(this.attrs.bbcode){ //parse bbcode
       const bbcode = this.attrs.bbcode.trim()
       this.address = getBBPara(bbcode,"payto=")
-      this.amount = getBBPara(bbcode,"amount=")
-      this.contents = getBBPara(bbcode,'contents="','"')
-      this.uid = getBBPara(bbcode,"id=")
+      if(this.address!=""){
+        this.amount = getBBPara(bbcode,"amount=")
+        this.contents = getBBPara(bbcode,'contents="','"')
+        this.uid = getBBPara(bbcode,"id=")  
+      }else{
+        this.contents = bbcode
+      }
+      
 
     }else{
       this.address = this.attrs.address
       this.amount = this.attrs.amount
       this.contents = this.attrs.contents;
-      if(!this.address||this.address==""){
+    }
+    if(!this.address||this.address==""){
         const userid = app.session.user.data.id
         getUsername(userid).then(name=>this.address = name)
       }
-    }
     console.log(this.address,this.amount,this.uid,this.contents)
     if(this.contents){
-      try{
-        this.contents = atob(this.contents)
-      }catch(e){}
+        this.contents = UTIL.decodeContent(this.contents)
     }
   }
 
@@ -90,7 +94,7 @@ export default class composeModal extends Modal {
     e.preventDefault();
 	  this.address = document.querySelector("#p2v_address").value
     this.amount = document.querySelector("#p2v_amount").value
-    this.contents = btoa(document.querySelector("#p2v_contents").value)
+    this.contents = UTIL.encodeContent(document.querySelector("#p2v_contents").value)
     if(this.uid==0){
       this.uid = Math.floor((Date.now()/1000))
     }
