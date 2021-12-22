@@ -74,7 +74,7 @@ export default class payModal extends Modal {
             console.log(res);
 						self.lockElement.parentElement.innerHTML = UTIL.decodeContent(self.contents);
 						app.modal.close();
-						document.cookie = `${self.itemid}=unlocked`
+						document.cookie = `${self.itemid}=unlocked;max-age=31536000`
 			    } else {
 						app.modal.close();
 						alert(app.translator.trans('chen-nbdomain-login.forum.tip_cancel'));

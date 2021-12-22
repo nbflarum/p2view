@@ -49,7 +49,7 @@ export default class composeModal extends Modal {
       }
     console.log(this.address,this.amount,this.uid,this.contents)
     if(this.contents){
-        //this.contents = UTIL.decodeContent(this.contents)
+        this.contents = UTIL.decodeContent(this.contents)
     }
   }
 

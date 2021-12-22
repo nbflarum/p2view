@@ -6,7 +6,7 @@ export default class UTIL {
         if (ret.slice(0, 2) != '||') ret = str;
         else ret = ret.slice(2);
 
-        if (ret.indexOf('http://') != -1 || ret.indexOf('https://') != -1) ret = `<a href='${ret}'>${ret}</a>`;
+        if (ret.indexOf('http://') ==0 || ret.indexOf('https://') == 0) ret = `<a href='${ret}'>${ret}</a>`;
 
         return ret;
     }
