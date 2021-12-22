@@ -72,7 +72,9 @@ export default class payModal extends Modal {
           if (result.code == 0) {
             const res = "Success, url=tx://" + result.txhash;
             console.log(res);
-						self.lockElement.parentElement.innerHTML = UTIL.decodeContent(self.contents);
+            self.lockElement.style = ""
+            self.lockElement.className = ""
+						self.lockElement.innerHTML = UTIL.decodeContent(self.contents);
 						app.modal.close();
 						document.cookie = `${self.itemid}=unlocked;max-age=31536000`
 			    } else {

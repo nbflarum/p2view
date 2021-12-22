@@ -28,8 +28,7 @@ function pay_event(event){
 }
 export default function() {
 		
-	extend(Post.prototype,'view',function(vnode){
-		setTimeout(()=>{
+	extend(Post.prototype,'oncreate',function(f_,vnode){
 			const paybutton = vnode.dom.querySelectorAll("#payview-button");
 			if(paybutton){
 				//console.log("found payview-button:",paybutton)
@@ -38,11 +37,12 @@ export default function() {
 					item.addEventListener("click",pay_event);
 					const data = item.dataset
 					if(cookie.indexOf(data.itemid+"=unlocked")!=-1){
-						item.parentElement.innerHTML = UTIL.decodeContent(data.contents)
+						item.innerHTML = UTIL.decodeContent(data.contents)
+						item.style = ""
+						item.className = ""
 					}
 				}
 			}
-		},500)
 		
 	})
 	//----------------------------------TextEditor--------------------------
