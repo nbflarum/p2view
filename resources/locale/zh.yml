@@ -1,0 +1,10 @@
+nbflarum-p2view:
+    forum:
+        compose_modal_title: 创建 支付查看 按钮 
+        compose_modal_receiver: 收款人 NBdomain 或 地址
+        compose_modal_amount: 数量
+        compose_modal_content: 内容
+        compose_modal_tip: 内容支持 HTML 格式
+        compose_modal_create: 创建
+        pay_modal_title: 支付后查看
+        

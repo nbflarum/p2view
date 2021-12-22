@@ -3,29 +3,30 @@ import app from 'flarum/app';
 import Modal from 'flarum/common/components/Modal';
 import Button from 'flarum/common/components/Button';
 import Stream from 'flarum/common/utils/Stream';
+import UTIL from './util'
 
 export default class payModal extends Modal {
   oninit(vnode) {
     super.oninit(vnode);
-    console.log(vnode)
+    //console.log(vnode)
 	this.contents = this.attrs.contents;
 	this.sender_id = this.attrs.sender_id;
 	this.itemid = this.attrs.itemid;
 	this.address = this.attrs.address;
 	this.tips_amount = this.attrs.tips_amount;
   this.lockElement = this.attrs.element;
-	console.log(this.lockElement)
+	//console.log(this.lockElement)
   this.opay = new Opay2
   fetch(app.forum.attribute('baseUrl')+"/nb/fundinfo").then(data=>data.json()).then(res=>this.fundAddress=res.address);
 
   }
 
   className() {
-    return 'addTipModal Modal--small';
+    return 'payModal Modal--small';
   }
 
   title() {
-    return app.translator.trans(`chen-nbdomain-login.forum.tip_title`);
+    return app.translator.trans(`nbflarum-p2view.forum.pay_modal_title`);
   }
   hide(){
     super.hide()
@@ -71,7 +72,7 @@ export default class payModal extends Modal {
           if (result.code == 0) {
             const res = "Success, url=tx://" + result.txhash;
             console.log(res);
-						self.lockElement.parentElement.innerHTML = self.contents;
+						self.lockElement.parentElement.innerHTML = UTIL.decodeContent(self.contents);
 						app.modal.close();
 						document.cookie = `${self.itemid}=unlocked`
 			    } else {

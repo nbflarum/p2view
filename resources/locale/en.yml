@@ -1,0 +1,11 @@
+nbflarum-p2view:
+    forum:
+        compose_modal_title: Create Pay to view button 
+        compose_modal_receiver: Receiver Nbdomain or address
+        compose_modal_amount: Amount
+        compose_modal_content: Content
+        compose_modal_tip: Content supports HTML format
+        compose_modal_create: Create
+        pay_modal_title: Pay to View
+        button_tip: create p2view button
+        
